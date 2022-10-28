@@ -63,7 +63,7 @@ function Tweet ( {tweet}:Props ) {
         <div className='mt-5 flex justify-between'>
             <div className='flex cursor-pointer items-center space-x-3 text-gray-400'>
                 <RiChat3Line  className='w-5 h-5'/>
-                <p> 5 </p>
+                <p> {commentsState.length} </p>
             </div>
 
             <div className='flex cursor-pointer items-center space-x-3 text-gray-400'>

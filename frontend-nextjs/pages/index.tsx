@@ -6,6 +6,10 @@ import Sidebar from '../components/Sidebar/Sidebar'
 import Widgets from '../components/Widgets/Widgets'
 import { Tweet } from '../typings'
 import { fetchTweets } from '../utils/fetchTweets'
+import { Toaster } from "react-hot-toast"
+
+import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer } from 'react-toastify';
 
 interface Props {
   tweets: Tweet[]

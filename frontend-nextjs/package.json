@@ -11,11 +11,14 @@
     "@sanity/image-url": "^1.0.1",
     "@sanity/types": "^2.35.0",
     "next": "latest",
+    "next-auth": "^4.15.0",
     "next-sanity": "^1.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.0",
     "react-icons": "^4.6.0",
     "react-timeago": "^7.1.0",
+    "react-toastify": "^9.0.8",
     "react-twitter-embed": "^4.0.4"
   },
   "devDependencies": {

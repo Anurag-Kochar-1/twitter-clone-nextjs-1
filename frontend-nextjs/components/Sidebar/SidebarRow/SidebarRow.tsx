@@ -5,12 +5,13 @@ import { IconType } from 'react-icons'
 interface Props {
     Icon:  IconType
     title: string
+    onClick?: () => {}
 }
 
-function SidebarRow( {Icon, title}: Props){
+function SidebarRow( {Icon, title , onClick}: Props){
   return (
 
-    <div className='max-w-fit group flex items-center space-x-3 px-4 py-3 rounded-full hover:bg-gray-100 hover:cursor-pointer 
+    <div onClick={() => onClick?.() } className='max-w-fit group flex items-center space-x-3 px-4 py-3 rounded-full hover:bg-gray-100 hover:cursor-pointer 
     transition-all duration-200 
     '>
         <Icon className='w-6 h-6'/>
