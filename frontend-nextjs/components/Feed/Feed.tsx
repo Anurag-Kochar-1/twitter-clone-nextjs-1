@@ -1,8 +1,15 @@
 import React from 'react'
 import {BiRefresh} from "react-icons/bi"
+import { Tweet } from '../../typings'
 import FeedTweetBox from './FeedTweetBox/FeedTweetBox'
+import TweetComponent from "../Tweet/Tweet"
 
-function Feed() {
+
+interface Props {
+  tweets : Tweet[]
+}
+
+function Feed( {tweets}:Props ) {
   return (
     <div className='col-span-7 lg:col-span-5 border-x'>
 
@@ -13,7 +20,17 @@ function Feed() {
         '/>
       </div>
 
-      <FeedTweetBox />
+      <div>
+        <FeedTweetBox />
+      </div>
+
+      <div>
+        {tweets.map((tweet) => (
+          <TweetComponent key={tweet._id} tweet={tweet} />
+        ))}
+      </div>
+
+
     </div>
   )
 }
