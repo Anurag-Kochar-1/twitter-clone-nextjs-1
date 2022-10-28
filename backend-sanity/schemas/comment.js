@@ -1,10 +1,10 @@
 export default {
-  name: 'commnet',
+  name: 'comment',
   title: 'Comment',
   type: 'document',
   fields: [
     {
-      name: 'commnet',
+      name: 'comment',
       title: 'Comment',
       type: 'string',
     },
