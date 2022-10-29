@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import {  useState , useEffect } from "react"
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -20,7 +20,20 @@ const Home = ({ tweets }:Props ) => {
   // console.log(tweets);
   console.log('---------------------------------- index.js is executed ----------------------------------');
 
-  
+
+
+  const [hydrated, setHydrated] = useState<boolean>(false);
+
+  useEffect(() => {
+    setHydrated(true)
+    console.log(`setHydrated is set to true from index.tsx`);
+    
+  },[])
+
+
+
+
+  if(!hydrated) return null
   
   return (
 
@@ -32,7 +45,7 @@ const Home = ({ tweets }:Props ) => {
 
       <main className='grid grid-cols-9'>
 
-         <Sidebar />
+         <Sidebar hydrated={hydrated} />
          <Feed tweets = {tweets} />
          <Widgets />
 
