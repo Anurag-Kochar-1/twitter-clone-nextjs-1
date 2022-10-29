@@ -42,7 +42,7 @@ export default async function handler(
     })
 
     const json = await result.json()
-    console.log(json);
+    // console.log(json);
     
 
     res.status(200).json({ message: 'Comment added' })

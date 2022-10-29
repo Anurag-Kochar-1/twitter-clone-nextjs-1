@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -16,7 +17,10 @@ interface Props {
 }
 
 const Home = ({ tweets }:Props ) => {
-  console.log(tweets);
+  // console.log(tweets);
+  console.log('---------------------------------- index.js is executed ----------------------------------');
+
+  
   
   return (
 
@@ -43,9 +47,10 @@ const Home = ({ tweets }:Props ) => {
 export default Home
 
 export const getServerSideProps:GetServerSideProps = async (context) => {
+  console.log("getServerSideProps function is running");
+  
+
   const tweets = await fetchTweets()
-
-
   return {
     props: {
       tweets

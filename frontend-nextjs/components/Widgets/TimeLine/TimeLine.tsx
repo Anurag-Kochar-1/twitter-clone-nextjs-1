@@ -4,11 +4,15 @@ import React from 'react'
 
 function TimeLine() {
   return (
-    <div>
+    <div
+      className="h-screen "
+      >
         <TwitterTimelineEmbed
             sourceType="profile"
             screenName="anurag__kochar"
-            options={{height: 400}}
+            options={{height: 800}}
+            
+            
         />
     </div>
   )

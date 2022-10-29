@@ -10,7 +10,7 @@ export const config = {
 
     // useCdn: process.env.NODE_ENV === 'production',
     // useCdn: false,
-    useCdn: true,
+    useCdn: false,
 
     token: process.env.SANITY_API_TOKEN
    

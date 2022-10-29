@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import {BiRefresh} from "react-icons/bi"
 import { Tweet } from '../../typings'
 import FeedTweetBox from './FeedTweetBox/FeedTweetBox'
 import TweetComponent from "../Tweet/Tweet"
 import { fetchTweets } from '../../utils/fetchTweets'
+import { GetServerSideProps } from 'next'
 // import toast , {Toaster} from 'react-hot-toast';
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
@@ -15,23 +16,32 @@ interface Props {
 }
 
 function Feed( {tweets : tweetsProp}:Props ) {
-  console.log(tweetsProp);
+  // console.log(tweetsProp);
 
   const [tweets, setTweets] = useState <Tweet[]> (tweetsProp)
 
   const handleRefresh = async () => {
+    console.log('refreshing feed.. is executed');
+    
 
-    // const refreshNotifyToast = () => toast("Feed updated");
-    // const refreshToast = toast.loading("Refreshing....")
+    const fetchingNewtweets = await fetchTweets()
 
-    const tweets = await fetchTweets()
-    setTweets(tweets)
+    // variable name changed to fetchingNewtweets from tweets
+    setTweets(fetchingNewtweets)
+    alert("updated")
 
-    // toast.success("Feed updated!", {
-    //   id : refreshToast
-    // })
   }
-  
+
+  const [hydrated, setHydrated] = useState<boolean>(false);
+
+  useEffect(() => {
+    setHydrated(true)
+    console.log(`setHydrated is set to true`);
+    
+  },[])
+
+
+  if(!hydrated) return null
 
   return (
     <div className='col-span-7 lg:col-span-5 border-x max-h-screen overflow-scroll scrollbar-hide'>
@@ -52,6 +62,7 @@ function Feed( {tweets : tweetsProp}:Props ) {
       </div>
 
       <div>
+      {/* <button onClick={() => console.log(tweets)} > LOG tweets </button> */}
         {tweets.map((tweet) => (
           <TweetComponent key={tweet._id} tweet={tweet} />
         ))}
@@ -63,3 +74,5 @@ function Feed( {tweets : tweetsProp}:Props ) {
 }
 
 export default Feed
+
+

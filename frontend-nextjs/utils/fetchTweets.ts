@@ -5,5 +5,6 @@ export const fetchTweets = async () => {
     const data = await res.json()
     const tweets:Tweet[] = data.tweets
 
+    console.log("fetchTweets function is running from fetchTweets.ts");
     return tweets
 }

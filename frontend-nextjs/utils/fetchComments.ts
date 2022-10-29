@@ -5,5 +5,6 @@ export const fetchComments = async (tweetId: string) => {
 
     const comments: Comment[] = await res.json()
 
+    console.log("fetch Comments function is running from fetchComments.ts");
     return comments
 }
