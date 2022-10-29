@@ -23,7 +23,7 @@ const Home = ({ tweets }:Props ) => {
     <div className="lg:max-w-6xl mx-auto max-h-screen overflow-hidden">
       <Head>
         <title> Twitter Clone </title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/twitterfavicon.ico" />
       </Head>
 
       <main className='grid grid-cols-9'>

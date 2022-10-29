@@ -5,8 +5,8 @@ import FeedTweetBox from './FeedTweetBox/FeedTweetBox'
 import TweetComponent from "../Tweet/Tweet"
 import { fetchTweets } from '../../utils/fetchTweets'
 // import toast , {Toaster} from 'react-hot-toast';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -34,7 +34,7 @@ function Feed( {tweets : tweetsProp}:Props ) {
   
 
   return (
-    <div className='col-span-7 lg:col-span-5 border-x'>
+    <div className='col-span-7 lg:col-span-5 border-x max-h-screen overflow-scroll scrollbar-hide'>
       {/* <Toaster /> */}
 
       <div className='flex items-center justify-between '>
@@ -48,7 +48,7 @@ function Feed( {tweets : tweetsProp}:Props ) {
       </div>
 
       <div>
-        <FeedTweetBox />
+        <FeedTweetBox setTweets={setTweets} />
       </div>
 
       <div>
