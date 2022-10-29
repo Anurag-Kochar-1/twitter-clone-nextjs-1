@@ -10,12 +10,18 @@ import { fetchTweets } from '../../../utils/fetchTweets'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+// import data from '@emoji-mart/data'
+// import Picker from '@emoji-mart/react'
+// import "emoji-mart/css/emoji-mart.css";
+
 interface Props {
     setTweets: React.Dispatch<React.SetStateAction<Tweet[]>>
 }
 
 
 function FeedTweetBox( {setTweets}:Props ) {
+
 
     const notify = () => toast.success('Tweet Added' , {
         position: "bottom-left",
@@ -32,8 +38,12 @@ function FeedTweetBox( {setTweets}:Props ) {
     const { data: session } = useSession()
     
     const [imageUrlBoxIsOpen , setImageUrlBoxIsOpen] = useState <boolean> (false)
+    const [emojiPickerBoxIsOpen , setEmojiPickerBoxIsOpen] = useState <boolean> (false)
     const [image, setImage] = useState<string>('')
     const imageInputRef = useRef<HTMLInputElement>(null)
+
+
+    
 
     const handleRefresh = async () => {
         console.log('refreshing feed function is executed from FeedTweetBox');
@@ -117,7 +127,7 @@ function FeedTweetBox( {setTweets}:Props ) {
         console.log(`helperTest function is running`);
         
         const newTweets = await fetchTweets()
-        
+
         setTimeout(() => {
             setTweets(newTweets)
             console.log('setTweets is executed after 5000ms');
@@ -126,10 +136,19 @@ function FeedTweetBox( {setTweets}:Props ) {
     }
 
 
+    // onClick={() => setEmojiPickerBoxIsOpen(!emojiPickerBoxIsOpen)}
 
-    // useEffect(() => {
-    //     fetchTweets()
-    // },[setTweets])
+    // const addEmoji = (e:any) => {
+    //     let symbol = e.unified.split("-");
+    //     let codesArray:any[] = [];
+    //     symbol.forEach((el:any) => codesArray.push("0x" + el));
+    //     let emoji = String.fromCodePoint(...codesArray);
+    //     setInput(input + emoji);
+    // }
+
+    // const closeEmojiPicker = () => {
+    //     console.log('111111111111111'); 
+    // }
 
     
     
@@ -169,7 +188,11 @@ function FeedTweetBox( {setTweets}:Props ) {
                             onClick={() => setImageUrlBoxIsOpen(!imageUrlBoxIsOpen)}
                             
                         />
-                        <BsEmojiSmile className='h-5 w-5' />
+                        <BsEmojiSmile 
+                            className='h-5 w-5 cursor-pointer 
+                            transition-transform duration-150 ease-out hover:scale-150'
+                            
+                            />
                         <AiOutlineCalendar className='h-5 w-5' />
                         <HiOutlineLocationMarker className='h-5 w-5' />
                     
@@ -201,13 +224,21 @@ function FeedTweetBox( {setTweets}:Props ) {
                     </form>
                  )}
 
+                 {/* {emojiPickerBoxIsOpen && (
+                    <Picker
+                        data={data} 
+                        onEmojiSelect={addEmoji}
+                        onClickOutside={closeEmojiPicker}
+                  />
+                 )} */}
+
                  {
                     image && (
                         <img 
                             src={image} 
                             alt="tweet-image" 
                             className='mt-10 h-40 w-full rounded-xl object-contain shadow-lg'
-                            />
+                        />
                     )
                  }
             </form>  
