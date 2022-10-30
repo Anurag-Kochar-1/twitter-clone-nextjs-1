@@ -10,6 +10,7 @@ import { fetchTweets } from '../utils/fetchTweets'
 import { Toaster } from "react-hot-toast"
 
 import 'react-toastify/dist/ReactToastify.css';
+import MobileHeaderBar from "../components/HeaderBar/MobileHeaderBar"
 // import { ToastContainer } from 'react-toastify';
 
 interface Props {
@@ -44,11 +45,15 @@ const Home = ({ tweets }:Props ) => {
         <link rel="shortcut icon" href="/twitterfavicon.ico" />
       </Head>
 
+      <header>
+        <MobileHeaderBar hydrated={hydrated} />
+      </header>
+
       {/* <main className='grid grid-cols-9 grid-rows-6'> */}
-      <main className='grid grid-cols-9 '>
+      <main className='grid grid-cols-9 mt-[10vh] md:mt-0'>
 
          <Sidebar hydrated={hydrated} />
-         <Feed tweets = {tweets} />
+         <Feed tweets = {tweets} hydrated={hydrated} />
          <Widgets />
 
 

@@ -66,7 +66,7 @@ function Tweet ( {tweet}:Props ) {
     
 
   return (
-    <div className='flex flex-col space-x-3 p-5 border-y border-gray-100 '>
+    <div className='flex flex-col space-x-3 my-3 p-5 border-y border-gray-50 dark:border-none'>
         
         
         <div className='flex space-x-1'>
@@ -137,7 +137,7 @@ function Tweet ( {tweet}:Props ) {
         )}
 
         {commentsState?.length > 0 && (
-            <div className='my-2 mt-5 max-h-44 space-y-5 overflow-y-scroll border-t border-gray-100 p-5'>
+            <div className='my-2 mt-5 max-h-44 space-y-5 overflow-y-scroll border-t border-gray-100 dark:border-gray-700 p-5'>
                 {commentsState.map((comment) => (
                     <CommentComponent key={comment._id} commentData={comment} />
                 ))}

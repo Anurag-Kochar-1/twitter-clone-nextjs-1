@@ -153,7 +153,7 @@ function FeedTweetBox( {setTweets}:Props ) {
     
     
   return (
-    <div className='flex space-x-2 p-5'>
+    <div className='flex space-x-2 p-5 '>
 
         <ToastContainer
         position="bottom-left"
@@ -168,19 +168,19 @@ function FeedTweetBox( {setTweets}:Props ) {
         theme="light"
         />
 
-        <img className='h-14 w-14 object-cover rounded-full mt-4' src={ session?.user?.image || "https://links.papareact.com/gll" } alt="placeholder" />
+        <img className='h-14 w-14 object-cover rounded-full mt-4' src={ session?.user?.image || "https://links.papareact.com/gll" } alt="pp" />
 
-        <div className='flex flex-1 items-center pl-2'>
+        <div className='flex flex-1 items-center pl-2 '>
             <form className='flex flex-1 flex-col'>
                 <input 
                     type="text"
                     placeholder="What's Happening?"
-                    className='h-24 w-full text-xl outline-none  placeholder:text-xl'
+                    className='h-24 px-2 rounded-lg w-full text-xl outline-none placeholder:text-xl dark:bg-[#121212]'
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                  />
 
-                 <div className='flex  items-center'>
+                 <div className='flex items-center py-4 '>
                     <div className='flex flex-1 space-x-2 text-twitter'>
                         <BiImage  
                             className='h-5 w-5 cursor-pointer 
