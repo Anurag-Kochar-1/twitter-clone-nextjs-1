@@ -47,7 +47,7 @@ function Feed( {tweets : tweetsProp}:Props ) {
   // if(!hydrated) return null
 
   return (
-    <div className='col-span-7 lg:col-span-5 border-x max-h-screen overflow-scroll scrollbar-hide'>
+    <div className='col-span-9 md:col-span-7 lg:col-span-5 border-x max-h-screen overflow-scroll scrollbar-hide'>
       {/* <Toaster /> */}
 
       <div className='flex items-center justify-between '>

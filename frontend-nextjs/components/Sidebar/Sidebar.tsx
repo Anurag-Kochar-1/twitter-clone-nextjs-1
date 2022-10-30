@@ -48,23 +48,37 @@ function Sidebar( {hydrated}:Props ) {
 
   return (
 
-    <div className='col-span-2 flex flex-col items-center px-4 md:items-start'>
+    // <div className='col-span-2 bg-red-100 flex flex-col items-center px-4 md:items-start'>
+    <div className='w-[100%] h-[10vh] fixed bottom-0  bg-red-500 flex flex-row justify-evenly items-center px-5 
+    
+    md:col-span-2 md:min-h-[100vh] sm:bg-yellow-400 md:bg-gray-700 md:relative md:flex md:flex-col md:items-center md:justify-start 
+    lg:items-start lg:bg-indigo-400
+    '>
+    
+        <BsTwitter className=' hidden md:inline-block md:text-green-200 text-twitter m-3 w-9 h-9 dark:text-white '/>
 
-        <BsTwitter className='text-twitter m-3 w-9 h-9 dark:text-white '/>
         <SidebarRow Icon={BiHomeCircle} title='Home' />
         <SidebarRow Icon={RiHashtag} title='Explore' />
         <SidebarRow Icon={BiBell} title='Notifications' />
-        <SidebarRow Icon={HiOutlineMail} title='Messages' />
-        <SidebarRow Icon={BiBookmark} title='Bookmarks' />
-        <SidebarRow Icon={RiFileListLine} title='Lists' />
+
+        <div className='hidden md:inline'> 
+          <SidebarRow Icon={HiOutlineMail} title='Messages' />
+          <SidebarRow Icon={BiBookmark} title='Bookmarks' />
+          <SidebarRow Icon={RiFileListLine} title='Lists' />
+        </div>
+
+    
+
         <SidebarRow 
           Icon={BiUser} 
           title={session? "Sign out" : "Sign in"}  
           onClick={session? signOut : signIn}
         
         />
-        <SidebarRow Icon={HiOutlineDotsCircleHorizontal} title='More' />
-        
+
+        <div className='hidden md:inlin'> 
+          <SidebarRow Icon={HiOutlineDotsCircleHorizontal} title='More' />
+        </div>
 
         {/* {renderThemeChanger()} */}
     </div>

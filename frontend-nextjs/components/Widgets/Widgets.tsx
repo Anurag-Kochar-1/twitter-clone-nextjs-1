@@ -5,7 +5,7 @@ import TimeLine from './TimeLine/TimeLine'
 
 function Widgets() {
   return (
-    <div className='hidden lg:inline max-h-screen col-span-2 px-2 mt-2 '>
+    <div className='hidden lg:inline-block max-h-screen col-span-2 px-2 mt-2 '>
 
         <SearchBar />
         <TimeLine  />   

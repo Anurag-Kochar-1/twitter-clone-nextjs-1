@@ -37,13 +37,15 @@ const Home = ({ tweets }:Props ) => {
   
   return (
 
-    <div className="lg:max-w-6xl mx-auto max-h-screen overflow-hidden">
+    <div className="lg:max-w-7xl mx-auto max-h-screen overflow-hidden">
+    
       <Head>
         <title> Twitter Clone </title>
         <link rel="shortcut icon" href="/twitterfavicon.ico" />
       </Head>
 
-      <main className='grid grid-cols-9'>
+      {/* <main className='grid grid-cols-9 grid-rows-6'> */}
+      <main className='grid grid-cols-9 '>
 
          <Sidebar hydrated={hydrated} />
          <Feed tweets = {tweets} />

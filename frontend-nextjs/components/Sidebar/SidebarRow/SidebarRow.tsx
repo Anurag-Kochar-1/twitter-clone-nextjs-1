@@ -15,8 +15,9 @@ function SidebarRow( {Icon, title , onClick}: Props){
     transition-all duration-200 
     '>
         <Icon className='w-6 h-6'/>
-        <p className='hidden md:inline-flex group-hover:text-twitter
-        text-base font-light lg:text-xl lg:font-medium
+
+        <p className='hidden lg:inline-flex group-hover:text-twitter
+        text-base font-medium lg:text-xl lg:font-medium
         '> {title} </p>
     </div>
   )
